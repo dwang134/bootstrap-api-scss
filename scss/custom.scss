@@ -2,12 +2,25 @@
 @import "../node_modules/bootstrap/scss/functions";
 
 // Include any default variable overrides here (though functions won't be available)
-$primary: pink;
-$navbar-dark-color: pink;
+$info: pink;
+$navbar-dark-hover-color: pink;
 
-// Required
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
-@import "../node_modules/bootstrap/scss/root";
 
-// Then add additional custom code here
+@import "../node_modules/bootstrap/scss/root"; //globals
+@import "../node_modules/bootstrap/scss/buttons";
+@import "../node_modules/bootstrap/scss/nav";
+@import "../node_modules/bootstrap/scss/navbar";
+
+
+//if you want to optimize load time you can look into all imports in boostrap.scss and figure out
+
+// etc
+.noto-sans{
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.indie-flower{
+    font-family: 'Indie Flower', cursive;
+}
