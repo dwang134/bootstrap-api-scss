@@ -1129,4 +1129,20 @@
   font-family: "Indie Flower", cursive;
 }
 
+.match-height {
+  max-height: 645px;
+}
+
+.user {
+  display: flex;
+  background-color: #f4f4f4;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.user ul {
+  list-style: none;
+}
+
 /*# sourceMappingURL=/custom.18d3a4a7.css.map */

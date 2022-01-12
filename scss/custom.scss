@@ -1,6 +1,7 @@
 // Required
 @import "../node_modules/bootstrap/scss/functions";
 
+
 // Include any default variable overrides here (though functions won't be available)
 $info: pink;
 $navbar-dark-hover-color: pink;
@@ -23,4 +24,20 @@ $navbar-dark-hover-color: pink;
 
 .indie-flower{
     font-family: 'Indie Flower', cursive;
+}
+
+.match-height{
+    max-height: 645px;
+}
+
+.user{
+    display:flex;
+    background-color: #f4f4f4;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.user ul{
+    list-style: none;
 }

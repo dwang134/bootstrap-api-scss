@@ -14,13 +14,13 @@
   <!-- bootstrap icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="/custom.18d3a4a7.css">
-
+ 
   <title>Learning Bootstrap5</title>
 <script src="/custom.18d3a4a7.js"></script></head>
 
 <body>
   <!--Navbar this is why you use react -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark ">
     <div class="container-fluid d-flex justify-content-between px-5 py-2">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"><i class="navbar-toggler-icon"></i>
       </button>
@@ -78,7 +78,6 @@
         </ul>
       </div>
     </div>
-    
   </nav>
 
   <!--Hero section-->
@@ -97,12 +96,11 @@
   </section>
 
   <!--Card Items-->
-  <div class="p-5">
-    <div class="container-fluid">
+    <div class="container-fluid p-5">
       <div class="row">
         <div class="col-md">
           <div class="card">
-            <img src="/clothes (1).591336b0.jpg" class="card-img-top img-fluid" alt="...">
+            <img src="/clothes (1).591336b0.jpg" class="card-img-top img-fluid match-height d-none d-md-block" alt="...">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -112,7 +110,7 @@
         </div>
         <div class="col-md">
           <div class="card">
-            <img src="/clothes (2).a14dc942.jpg" class="card-img-top img-fluid" alt="...">
+            <img src="/clothes (2).a14dc942.jpg" class="card-img-top img-fluid match-height" alt="...">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -122,7 +120,7 @@
         </div>
         <div class="col-md">
           <div class="card">
-            <img src="/clothes (3).1224ef88.jpg" class="card-img-top img-fluid" alt="...">
+            <img src="/clothes (3).1224ef88.jpg" class="card-img-top img-fluid match-height" alt="...">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -133,7 +131,28 @@
       </div>
     </div>
 
+    <div class="container-fluid p-5"> <!-- auto margin on side-->
+      <h1 class="display-4 mb-4">API Sandbox </h1>
+      <div class="d-flex">
+              <button class="btn btn-primary me-4" id="text">Get Text</button>
+              <button class="btn btn-success me-4" id="users">Load Github Users (AJAX)</button>
+              <button class="btn btn-warning me-4" id="posts">Get API data</button>
   </div>
+  <hr>
+  <div id="output"></div>
+          <div class="border rounded p-4">
+              <form id="addPost">
+                  <div class="mb-3">
+                  <label class="form-label">Title</label>
+                      <input class="form-control" id="title" type="text" placeholder="Title">
+                  </div>
+                  <div>
+                  <textArea class="form-control" id="body" placholder="Body"></textArea>
+                  </div>
+                  <input class="btn btn-primary mt-3" type="submit" value="submit">
+              </form>
+          </div>
+</div>
 
   <script src="/src.e31bb0bc.js"></script>
 </body>

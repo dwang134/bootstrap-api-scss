@@ -8156,6 +8156,91 @@ var bootstrap = _interopRequireWildcard(require("bootstrap"));
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+document.getElementById('text').addEventListener('click', getText);
+document.getElementById('users').addEventListener('click', loadUsers);
+document.getElementById('posts').addEventListener('click', getPosts);
+document.getElementById('addPost').addEventListener('submit', addPost);
+
+function getText() {
+  document.getElementById('output').innerHTML = '';
+  fetch('sample.txt').then(function (res) {
+    return res.text();
+  }).then(function (data) {
+    return console.log(data);
+  });
+} // function getUsers(){
+//     fetch('users.json')
+//     .then((res)=> res.json())
+//     .then((data)=>{
+//         var output= "<h2>Users</h2>";
+//         data.forEach((user)=>{
+//             output+= `
+//             <ul>
+//                 <li>ID: ${user.id} </li>
+//                 <li>Name: ${user.name} </li>
+//                 <li>Email: ${user.email} </li>
+//             </ul>
+//             `;
+//         })
+//         document.getElementById('output').innerHTML=output;
+//     })
+// }
+
+
+function loadUsers() {
+  //Load Github Users
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://api.github.com/users', true);
+
+  xhr.onload = function () {
+    if (this.status == 200) {
+      var users = JSON.parse(xhr.responseText);
+      var output = '';
+
+      for (var i = 0; i < 5; i++) {
+        output += '<div class=user>' + "<img src= ".concat(users[i].avatar_url, " alt= \"\" width= \"70\" height= \"70\">") + '<ul>' + '<li>' + "Username: ".concat(users[i].login) + '</li>' + '<li>' + "User ID: ".concat(users[i].id) + '</li>' + '</ul>' + '</div>';
+      }
+
+      document.getElementById('output').innerHTML = output;
+    }
+  };
+
+  xhr.send();
+}
+
+function getPosts() {
+  fetch('https://jsonplaceholder.typicode.com/posts').then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    var output = "<h2>Posts</h2>";
+    data.forEach(function (post) {
+      output += "\n                <div class= \"card card-body mb-3\">\n                    <h3>".concat(post.title, "</h3>\n                    <p>").concat(post.body, "</p>\n                </div>\n            ");
+    });
+    document.getElementById('output').innerHTML = output;
+  });
+}
+
+function addPost(e) {
+  e.preventDefault();
+  var title = document.getElementById('title').value;
+  var body = document.getElementById('body').value;
+  fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      title: title,
+      body: body
+    })
+  }).then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    return console.log(data);
+  });
+}
 },{"bootstrap":"../node_modules/bootstrap/dist/js/bootstrap.esm.js"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -8184,7 +8269,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53864" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60223" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
